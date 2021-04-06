@@ -21,12 +21,15 @@
 
 
 <!-- Textfält med knapp-->
+<!-- <form action="" method="post">
 <label for="text">Sök här:</label><br>
-<input name="text" ><?php echo $text;?></input><br>
-<input type="submit" name="submit" value="Submit">  
+<input type="text" name="search" placeholder="Sök här.."></input><br>
+<input type="submit" name="button" value="Submit">  
 <br>
+</form> -->
 
 <?php
+
 
 $text = "";
 
@@ -46,11 +49,57 @@ echo $animals['name'] . "<br/>";
 }
 
 
+
+
 /* Textfält */
 echo $text;
 
 
 ?>
+
+<?php
+if(isset($_POST['insert'])) 
+{
+    try{
+        $pdoConnect = new PDO('mysql:host=localhost;dbname=zoo;charset=UTF8;port=8889', 'ZooAdmin', 'animals');
+    } catch (PDOexception $exc) {
+        echo $exc->getMessage();
+        exit();
+    }
+    $id = $_POST ['id'];
+    $name = $_POST ['name'];
+    $category = $_POST['category'];
+    $birthday = $_POST ['birthday'];
+
+    $pdoQuery = "INSERT INTO animals(id, name, category, birthday) VALUES (:id,:name,:category,:birthday)";
+
+    $pdoResult = $pdoConnect->prepare($pdoQuery);
+
+    $pdoExec = $pdoResult->execute(array(":id"=>$id,":name"=>$name,":category"=>$category,":birthday"=>$birthday,));
+
+    if($pdoExec)
+    {
+        echo 'Data inserted'; 
+    } else {
+        echo 'Data failed to insert';
+    }
+}
+?>
+<pre>
+    <legend>Lägg till ett djur nedan</legend>
+    <form action="index.php" method="post">
+        <input type="text" name="id" required placeholder="id"> 
+        <input type="text" name="name" required placeholder="name">
+        <input type="text" name="category" required placeholder="category">
+        <input type="text" name="birthday" required placeholder="birthday">
+        <input type="submit" name="insert" value="Lägg till">
+    </form>
+
+</pre>
+
+
+
+
 
 </body>
 </html>
