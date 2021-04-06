@@ -1,6 +1,3 @@
-<!-- hej -->
-
-<!-- test -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +10,16 @@
     
 
 <h1>mm detta är vårat zoo</h1>
+
+
+<!-- File Upload -->
+<form action="upload.php" method="post" enctype="multipart/form-data">
+  Select image to upload:
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Upload Image" name="submit">
+</form>
+
+
 
 <?php
 ini_set('display_errors', 1);
