@@ -1,5 +1,3 @@
-<!-- hej -->
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +35,7 @@ foreach($dbh->query($query) as $animals){
 <?php
 echo "<select>";
 foreach($dbh->query($query) as $animals){
-    echo "<option value='$animals'>{$animals['category']}</option>";
+    echo "<option value='$animals'>{$animals['name']}</option>";
 };
 ?>
 
