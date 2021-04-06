@@ -21,8 +21,8 @@
 
 
 <!-- Textfält med knapp-->
-<label for="text">Skriv här</label><br>
-<textarea name="text" id="" cols="30" rows="10"><?php echo $text;?></textarea><br>
+<label for="text">Sök här:</label><br>
+<input name="text" ><?php echo $text;?></input><br>
 <input type="submit" name="submit" value="Submit">  
 <br>
 
