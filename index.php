@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Vårt Zoo</title>
 </head>
 <body>
     
@@ -20,8 +20,16 @@
 </form>
 
 
+<!-- Textfält med knapp-->
+<label for="text">Skriv här</label><br>
+<textarea name="text" id="" cols="30" rows="10"><?php echo $text;?></textarea><br>
+<input type="submit" name="submit" value="Submit">  
+<br>
 
 <?php
+
+$text = "";
+
 ini_set('display_errors', 1);
 
 ini_set('display_startup_errors', 1);
@@ -36,6 +44,10 @@ $query = "SELECT * FROM zoo.animals";
 foreach ($dbh->query($query) as $animals) {
 echo $animals['name'] . "<br/>";
 }
+
+
+/* Textfält */
+echo $text;
 
 
 ?>
