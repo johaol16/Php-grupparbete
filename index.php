@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vårt Zoo</title>
+    <link rel='stylesheet' type='text/css' href='style.css' />
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
     
@@ -13,35 +16,7 @@
 
 
 
-<!-- Filuppladning -->
-<form enctype="multipart/form-data" action="index.php" method="post">
-    <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
-    <input type="file" name="fileToUpload" id="ftu" />
-    <input type="submit" value="Ladda upp fil" />
-  </form>
 
-
-<!-- Filuppladdning -->
-<?php
-// Slå på all felrapportering. Bra under utveckling, dåligt i produktion.
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
-
-// Kör bara om $_FILES innehåller något 
-if ($_FILES) {
-
-    $uploadDir = "temp/";
-    $uploadPath = $uploadDir . basename($_FILES['fileToUpload']['name']);
-
-    if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadPath)) {
-        echo "Filen är uppladdad";
-    } else {
-        echo "Något gick fel";
-    }
-}
-
-?>
 
 <?php
 if(isset($_POST['insert'])) 
@@ -71,17 +46,51 @@ if(isset($_POST['insert']))
     }
 }
 ?>
-<pre>
-    <legend>Lägg till ett djur nedan</legend>
+<div id="form">
+    <h2>Lägg till ett djur nedan</h2>
     <form action="index.php" method="post">
-        <input type="text" name="id" required placeholder="id"> 
-        <input type="text" name="name" required placeholder="name">
-        <input type="text" name="category" required placeholder="category">
-        <input type="text" name="birthday" required placeholder="birthday">
-        <input type="submit" name="insert" value="Lägg till">
+        <label>ID</label>
+        <input class="textfalt" type="text" name="id" required placeholder="Skriv ett ID.."> 
+        <label>Namn</label>
+        <input class="textfalt" type="text" name="name" required placeholder="Skriv ett Namn..">
+        <label>Kategori</label>
+        <input class="textfalt" type="text" name="category" required placeholder="Skriv en Kategori..">
+        <label>Födelsedatum</label>
+        <input class="textfalt" type="text" name="birthday" required placeholder="Skriv ett Födelsedatum..">
+        <input class="knapp" type="submit" name="insert" value="Lägg till">
     </form>
 
-</pre>
+</div>
+
+
+
+<!-- Filuppladning -->
+<div id="filuppladdning">
+    <h2>Ladda upp en bild på ett djur</h2>
+<form enctype="multipart/form-data" action="index.php" method="post">
+    <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+    <input type="file" name="fileToUpload" id="ftu" />
+    <input class="knapp" type="submit" value="Ladda upp fil" />
+  </form>
+  </div>
+
+
+<?php
+
+if ($_FILES) {
+
+    $uploadDir = "temp/";
+    $uploadPath = $uploadDir . basename($_FILES['fileToUpload']['name']);
+
+    if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadPath)) {
+        echo "Filen är uppladdad";
+        echo "<img src=".$uploadPath." height=200 width=300 />";
+    } else {
+        echo "Något gick fel";
+    }
+}
+
+?>
 
 <?php
 
@@ -97,9 +106,10 @@ if(isset($_POST['insert']))
     $statementByName->execute(array($animalSelect));
     $resultName = $statementByName->fetchAll();
 ?>
-
+<div id="rullgardin">
+    <h2>Se information om ett djur</h2>
   <form action="index.php" method="post">
-    <select id="" name='animals'>
+    <select id="gardin" name='animals'>
       <?php
           foreach ($result as $animal) {
               if ($animal['name'] == $animalSelect) {
@@ -109,10 +119,10 @@ if(isset($_POST['insert']))
               }
           }
           ?>
-      <input type="submit" value="Search" name="sortByName">
+      <input class="knapp" type="submit" value="Search" name="sortByName">
     </select>
   </form>
-    <div>
+    
         <?php
             foreach ($resultName as $animal) {
                 echo '<span>'
@@ -122,10 +132,12 @@ if(isset($_POST['insert']))
                 .'</span>';
             }
             ?>
-
-    </div>
   </div>
+
+ 
 
 
 </body>
 </html>
+
+ 
