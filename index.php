@@ -7,41 +7,11 @@
     <title>Vårt Zoo</title>
 </head>
 <body>
-    
+
 
 <h1>mm detta är vårat zoo</h1>
 
 
-
-<!-- Filuppladning -->
-<form enctype="multipart/form-data" action="index.php" method="post">
-    <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
-    <input type="file" name="fileToUpload" id="ftu" />
-    <input type="submit" value="Ladda upp fil" />
-  </form>
-
-
-<!-- Filuppladdning -->
-<?php
-// Slå på all felrapportering. Bra under utveckling, dåligt i produktion.
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
-
-// Kör bara om $_FILES innehåller något 
-if ($_FILES) {
-
-    $uploadDir = "temp/";
-    $uploadPath = $uploadDir . basename($_FILES['fileToUpload']['name']);
-
-    if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadPath)) {
-        echo "Filen är uppladdad";
-    } else {
-        echo "Något gick fel";
-    }
-}
-
-?>
 
 <?php
 if(isset($_POST['insert'])) 
@@ -125,6 +95,37 @@ if(isset($_POST['insert']))
 
     </div>
   </div>
+
+
+<!-- Filuppladning -->
+<form enctype="multipart/form-data" action="index.php" method="post">
+    <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+    <input type="file" name="fileToUpload" id="ftu" />
+    <input type="submit" value="Ladda upp fil" />
+  </form>
+
+
+<!-- Filuppladdning -->
+<?php
+// Slå på all felrapportering. Bra under utveckling, dåligt i produktion.
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Kör bara om $_FILES innehåller något 
+if ($_FILES) {
+
+    $uploadDir = "temp/";
+    $uploadPath = $uploadDir . basename($_FILES['fileToUpload']['name']);
+
+    if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadPath)) {
+        echo "Filen är uppladdad";
+        echo "<img src=".$uploadPath." height=200 width=300 />";
+    } else {
+        echo "Något gick fel";
+    }
+}
+?>
 
 
 </body>
