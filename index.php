@@ -32,17 +32,17 @@
 <!-- Filuppladdning -->
 <?php
 // Slå på all felrapportering. Bra under utveckling, dåligt i produktion.
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 // Kör bara om $_FILES innehåller något 
 if ($_FILES) {
 
-    $uploadDir = "/";
+    $uploadDir = "temp/";
     $uploadPath = $uploadDir . basename($_FILES['fileToUpload']['name']);
 
-    if (move_uploaded_file($_FILES['fileToUpload']['/'], $uploadPath)) {
+    if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadPath)) {
         echo "Filen är uppladdad";
     } else {
         echo "Något gick fel";
