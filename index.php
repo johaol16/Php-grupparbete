@@ -20,29 +20,29 @@
 
 <?php
 
-ini_set('display_errors', 1);
+    ini_set('display_errors', 1);
 
-ini_set('display_startup_errors', 1);
+    ini_set('display_startup_errors', 1);
 
-error_reporting(E_ALL);
-$dbh = new PDO('mysql:host=localhost;dbname=zoo;charset=UTF8;port=8889', 'ZooAdmin', 'animals');
+    error_reporting(E_ALL);
+    $dbh = new PDO('mysql:host=localhost;dbname=zoo;charset=UTF8;port=8889', 'ZooAdmin', 'animals');
 
 ?>
 
 <!-- Filuppladdning -->
 <?php
 // Slå på all felrapportering. Bra under utveckling, dåligt i produktion.
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 
 // Kör bara om $_FILES innehåller något 
 if ($_FILES) {
 
-    $uploadDir = "temp/";
+    $uploadDir = "/";
     $uploadPath = $uploadDir . basename($_FILES['fileToUpload']['name']);
 
-    if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadPath)) {
+    if (move_uploaded_file($_FILES['fileToUpload']['/'], $uploadPath)) {
         echo "Filen är uppladdad";
     } else {
         echo "Något gick fel";
@@ -50,7 +50,6 @@ if ($_FILES) {
 }
 
 ?>
-
     <?php
         if(isset($_POST['insert'])) 
         {
