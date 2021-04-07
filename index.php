@@ -21,7 +21,6 @@
   </form>
 
 
-
 <!-- Filuppladdning -->
 <?php
 // Slå på all felrapportering. Bra under utveckling, dåligt i produktion.
@@ -127,8 +126,12 @@ if(isset($_POST['insert']))
 
     </div>
   </div>
+<<<<<<< HEAD
 
 
+=======
+</body>
+>>>>>>> f0096b6f52181ad279d2bd809f2cb7c0d79324eb
 
 
 </body>
