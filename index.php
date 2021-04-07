@@ -24,9 +24,9 @@
 <!-- Filuppladdning -->
 <?php
 // Slå på all felrapportering. Bra under utveckling, dåligt i produktion.
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
 // Kör bara om $_FILES innehåller något 
 if ($_FILES) {
@@ -98,7 +98,6 @@ if(isset($_POST['insert']))
     $resultName = $statementByName->fetchAll();
 ?>
 
-<body>
   <form action="index.php" method="post">
     <select id="" name='animals'>
       <?php
