@@ -15,8 +15,24 @@
     <?php
         $dbh = new PDO('mysql:host=localhost;dbname=zoo;charset=UTF8;port=8889', 'ZooAdmin', 'animals');
         $query = "SELECT * FROM zoo.animals";
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+            foreach ($dbh->query($query) as $animals) {
+            echo $animals['name'] . "<br/>";
+            }
     ?>
 </div>
+<form action="index.php" method="get">
+    <select>
+        <?php
+        foreach($dbh->query($query) as $animals){
+            echo '<option value="' . $animals[1] . '">' . $animals[1] . '</option>';
+        }
+        ?>
+    </select>
+</form>
+
 <?php
     if(isset($_POST['insert'])) 
     {
