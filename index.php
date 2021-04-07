@@ -21,18 +21,12 @@
   </form>
 
 
-<!-- Textfält med knapp-->
-<!-- <form action="" method="post">
-<label for="text">Sök här:</label><br>
-<input type="text" name="search" placeholder="Sök här.."></input><br>
-<input type="submit" name="button" value="Submit">  
-<br>
-</form> -->
+
 
 <?php
 
 
-$text = "";
+
 
 ini_set('display_errors', 1);
 
@@ -44,14 +38,10 @@ error_reporting(E_ALL);
 
 $dbh = new PDO('mysql:host=localhost;dbname=zoo;charset=UTF8;port=8889', 'ZooAdmin', 'animals');
 
-$query = "SELECT * FROM zoo.animals";
-foreach ($dbh->query($query) as $animals) {
-echo $animals['name'] . "<br/>";
-}
 
 
-/* Textfält */
-echo $text;
+
+
 
 ?>
 
@@ -116,6 +106,51 @@ if(isset($_POST['insert']))
     </form>
 
 </pre>
+
+<?php
+
+    $dbh = new PDO('mysql:host=localhost;dbname=zoo;port=8889;charset=utf8;', "ZooAdmin", "animals", );
+    $query = "SELECT * FROM animals WHERE ':id' < 20";
+    $statement = $dbh->prepare($query, array(PDO::FETCH_ASSOC));
+    $statement->execute(array(':id' => 10));
+    $result = $statement->fetchAll();
+
+    $animalSelect = str_replace('-', ' ', $_POST['animals']);
+    $queryUserInput = 'SELECT * FROM animals WHERE name = ?';
+    $statementByName = $dbh->prepare($queryUserInput, array(PDO::FETCH_ASSOC));
+    $statementByName->execute(array($animalSelect));
+    $resultName = $statementByName->fetchAll();
+?>
+
+<body>
+  <form action="index.php" method="post">
+    <select id="" name='animals'>
+      <?php
+          foreach ($result as $animal) {
+              if ($animal['name'] == $animalSelect) {
+                  echo'<option Selected value='.str_replace(' ', '-', $animal['name']).'>'.$animal['name'].'</option>';
+              } else {
+                  echo '<option value='.str_replace(' ', '-', $animal['name']).'>'.$animal['name'].'</option>';
+              }
+          }
+          ?>
+      <input type="submit" value="Search" name="sortByName">
+    </select>
+  </form>
+    <div>
+        <?php
+            foreach ($resultName as $animal) {
+                echo '<span>'
+                .'<span>'.$animal['name'] .'</span>'
+                .'<span>'.$animal['category'] .'</span>'
+                .'<span>'.$animal['birthday'] .'</span>'
+                .'</span>';
+            }
+            ?>
+
+    </div>
+  </div>
+</body>
 
 
 </body>
