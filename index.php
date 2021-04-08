@@ -37,19 +37,22 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Kör bara om $_FILES innehåller något 
-if ($_FILES) {
+       if ($_FILES) {
 
-    $uploadDir = "temp/";
-    $uploadPath = $uploadDir . basename($_FILES['fileToUpload']['name']);
+            $uploadDir = "temp/";
+            $uploadPath = $uploadDir . basename($_FILES['fileToUpload']['name']);
 
-    if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadPath)) {
-        echo "Filen är uppladdad";
-    } else {
-        echo "Något gick fel";
-    }
-}
-
+            if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadPath)) {
+                echo "Filen är uppladdad";
+                echo "<img src=".$uploadPath." height=200 width=300 />";
+            } else {
+                echo "Något gick fel";
+            }
+        }
 ?>
+    <div>
+
+    </div>
     <?php
         if(isset($_POST['insert'])) 
         {
@@ -133,8 +136,7 @@ if ($_FILES) {
 
     </div>
   </div>
+
 </body>
-
-
 </body>
 </html>
