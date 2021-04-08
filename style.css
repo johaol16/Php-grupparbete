@@ -1,0 +1,118 @@
+body {
+  /* background-color: white; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* flex-direction: column; */
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: row;
+  background-color: seashell;
+  justify-content: space-around;
+  flex-grow: 2;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  /* justify-content: space-between; */
+}
+
+#parant {
+  display: flex;
+  justify-content: center;
+}
+
+#rullgardin {
+  padding: 30px;
+  /* align-items: flex-start; */
+
+  /* justify-content: center; */
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#filuppladdning {
+  display: flex;
+  flex-direction: column;
+}
+
+/* #rulle {
+  width: 200px;
+  position: relative;
+  font-family: "Poppins";
+}
+select-selected {
+  background-color: blue;
+}
+select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+#gardin {
+  width: 200px;
+  height: 30px;
+  border: red solid 1px;
+  position: relative;
+} */
+
+span {
+  margin: 20px;
+}
+
+.knapp {
+  padding: 10px;
+  margin-top: 30px;
+  width: 100px;
+  /* align-self: center; */
+  display: flex;
+  border-radius: 3px;
+  border: none;
+  background-color: orange;
+  color: white;
+}
+
+/* #rullknapp {
+  margin-right: 50px;
+} */
+
+#hej {
+  align-self: center;
+  position: relative;
+  align-items: center;
+}
+
+.textfalt {
+  padding-left: 10px;
+  height: 30px;
+  width: 300px;
+  align-self: flex-start;
+  display: flex;
+  border: solid 1px black;
+  border-radius: 3px;
+}
+
+label {
+  margin-top: 20px;
+}
+
+h2 {
+  text-align: center;
+}
