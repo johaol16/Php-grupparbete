@@ -12,10 +12,7 @@
 <body>
     
 
-<h1>mm detta är vårat zoo</h1>
-
-
-
+<h1>Zoo-formulär</h1>
 
 
 <?php
@@ -115,7 +112,6 @@ if ($_FILES) {
 <div id="rullgardin">
     <h2>Se information om ett djur</h2>
   <form action="index.php" method="post">
-      <!-- <div id="rulle"> -->
       <div id="hej">
     <select id="gardin" name='animals'>
       <?php
@@ -127,8 +123,8 @@ if ($_FILES) {
               }
           }
           ?>
-         <!--  </div> -->
-      <input id="rullknapp" class="knapp" type="submit" value="Search" name="sortByName">
+        
+      <input class="knapp" type="submit" value="Sök" name="sortByName">
 
     </select>
     </div>

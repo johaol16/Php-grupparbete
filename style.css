@@ -1,8 +1,4 @@
 body {
-  /* background-color: white; */
-  /* display: flex; */
-  /* align-items: center; */
-  /* flex-direction: column; */
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
@@ -11,12 +7,12 @@ body {
 h1 {
   display: flex;
   justify-content: center;
+  padding: 50px;
 }
 
 #wrapper {
   display: flex;
   flex-direction: row;
-  background-color: seashell;
   justify-content: space-around;
   flex-grow: 2;
 }
@@ -25,7 +21,14 @@ form {
   display: flex;
   flex-direction: column;
   margin: 30px;
-  /* justify-content: space-between; */
+}
+
+#form {
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(160, 160, 160, 0.2),
+    0 6px 20px 0 rgba(160, 160, 160, 0.2);
+  margin-left: 200px;
+  padding: 30px;
 }
 
 #parant {
@@ -34,72 +37,58 @@ form {
 }
 
 #rullgardin {
-  padding: 30px;
-  /* align-items: flex-start; */
-
-  /* justify-content: center; */
+  padding: 30px 110px 30px 110px;
+  margin: 50px;
   align-self: center;
   display: flex;
   flex-direction: column;
+  background-color: rgb(233, 233, 233);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(219, 218, 218, 0.2),
+    0 6px 20px 0 rgba(219, 218, 218, 0.2);
 }
 
 #filuppladdning {
   display: flex;
   flex-direction: column;
-}
-
-/* #rulle {
-  width: 200px;
-  position: relative;
-  font-family: "Poppins";
-}
-
-select-selected {
-  background-color: blue;
-}
-
-select-selected:after {
-  position: absolute;
-  content: "";
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(160, 160, 160, 0.2),
+    0 6px 20px 0 rgba(160, 160, 160, 0.2);
+  margin-right: 200px;
+  padding: 30px;
 }
 
 #gardin {
-  width: 200px;
+  width: 150px;
   height: 30px;
-  border: red solid 1px;
+  padding-left: 7px;
   position: relative;
-} */
+  appearance: none;
+  border-radius: 5px;
+  border: solid 1px black;
+  background-image: url(/arrow.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+}
 
 span {
-  margin: 20px;
+  margin: 15px;
 }
 
 .knapp {
   padding: 10px;
   margin-top: 30px;
-  width: 100px;
-  /* align-self: center; */
+  width: 130px;
   display: flex;
   border-radius: 3px;
   border: none;
   background-color: orange;
   color: white;
-}
-
-#rullknapp {
-  margin-right: 50px;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
 #hej {
-  display: flex;
-  align-self: center;
-  /* position: relative; */
   align-items: flex-start;
 }
 
