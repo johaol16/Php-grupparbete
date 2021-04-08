@@ -80,10 +80,10 @@ if ($_FILES) {
     $uploadPath = $uploadDir . basename($_FILES['fileToUpload']['name']);
 
     if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadPath)) {
-        echo "Filen är uppladdad";
+        echo "<p>Filen är uppladdad</p>";
         echo "<img src=".$uploadPath." height=200 width=300 />";
     } else {
-        echo "Något gick fel";
+        echo "<p>Något gick fel</p>";
     }
 }
 
