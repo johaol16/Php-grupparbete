@@ -46,6 +46,8 @@ if(isset($_POST['insert']))
     }
 }
 ?>
+
+<div id="wrapper">
 <div id="form">
     <h2>Lägg till ett djur nedan</h2>
     <form action="index.php" method="post">
@@ -72,10 +74,8 @@ if(isset($_POST['insert']))
     <input type="file" name="fileToUpload" id="ftu" />
     <input class="knapp" type="submit" value="Ladda upp fil" />
   </form>
-  </div>
 
-
-<?php
+  <?php
 
 if ($_FILES) {
 
@@ -91,6 +91,11 @@ if ($_FILES) {
 }
 
 ?>
+  </div>
+  </div>
+
+
+
 
 <?php
 
@@ -106,9 +111,12 @@ if ($_FILES) {
     $statementByName->execute(array($animalSelect));
     $resultName = $statementByName->fetchAll();
 ?>
+<div id="parant">
 <div id="rullgardin">
     <h2>Se information om ett djur</h2>
   <form action="index.php" method="post">
+      <!-- <div id="rulle"> -->
+      <div id="hej">
     <select id="gardin" name='animals'>
       <?php
           foreach ($result as $animal) {
@@ -119,8 +127,11 @@ if ($_FILES) {
               }
           }
           ?>
-      <input class="knapp" type="submit" value="Search" name="sortByName">
+         <!--  </div> -->
+      <input id="rullknapp" class="knapp" type="submit" value="Search" name="sortByName">
+
     </select>
+    </div>
   </form>
     
         <?php
@@ -133,6 +144,8 @@ if ($_FILES) {
             }
             ?>
   </div>
+  </div>
+  
 
  
 
