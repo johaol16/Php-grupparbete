@@ -29,13 +29,13 @@ if(isset($_POST['insert']))
     $category = $_POST['category'];
     $birthday = $_POST ['birthday'];
 
-    $Query = "INSERT INTO animals(id, name, category, birthday) VALUES (:id,:name,:category,:birthday)";
+    $pdoQuery = "INSERT INTO animals(id, name, category, birthday) VALUES (:id,:name,:category,:birthday)";
 
-    $Result = $Connect->prepare($Query);
+    $pdoResult = $pdoConnect->prepare($pdoQuery);
 
-    $Exec = $Result->execute(array(":id"=>$id,":name"=>$name,":category"=>$category,":birthday"=>$birthday,));
+    $pdoExec = $pdoResult->execute(array(":id"=>$id,":name"=>$name,":category"=>$category,":birthday"=>$birthday,));
 
-    if($Exec)
+    if($pdoExec)
     {
         echo 'Data inserted'; 
     } else {
