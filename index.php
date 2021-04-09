@@ -35,6 +35,8 @@ if(isset($_POST['insert']))
 
     $pdoExec = $pdoResult->execute(array(":id"=>$id,":name"=>$name,":category"=>$category,":birthday"=>$birthday,));
 
+    
+
    /*  if($pdoExec)
     {
         echo 'Data inserted'; 
@@ -63,7 +65,7 @@ if(isset($_POST['insert']))
     {
         echo '<p style="color:green;" class="fail">Ett djur lades till</p>'; 
     } else {
-        echo '<p style="color:red;" class="fail">Något gick fel</p>';
+        echo '<p class="fail">Inget djur har lagts till ännu</p>';
     }
 ?>
     </form>
