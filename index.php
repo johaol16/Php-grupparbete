@@ -12,10 +12,7 @@
 <body>
     
 
-<h1>mm detta är vårat zoo</h1>
-
-
-
+<h1>Zoo-formulär</h1>
 
 
 <?php
@@ -32,13 +29,13 @@ if(isset($_POST['insert']))
     $category = $_POST['category'];
     $birthday = $_POST ['birthday'];
 
-    $pdoQuery = "INSERT INTO animals(id, name, category, birthday) VALUES (:id,:name,:category,:birthday)";
+    $Query = "INSERT INTO animals(id, name, category, birthday) VALUES (:id,:name,:category,:birthday)";
 
-    $pdoResult = $pdoConnect->prepare($pdoQuery);
+    $Result = $Connect->prepare($Query);
 
-    $pdoExec = $pdoResult->execute(array(":id"=>$id,":name"=>$name,":category"=>$category,":birthday"=>$birthday,));
+    $Exec = $Result->execute(array(":id"=>$id,":name"=>$name,":category"=>$category,":birthday"=>$birthday,));
 
-    if($pdoExec)
+    if($Exec)
     {
         echo 'Data inserted'; 
     } else {
@@ -115,7 +112,6 @@ if ($_FILES) {
 <div id="rullgardin">
     <h2>Se information om ett djur</h2>
   <form action="index.php" method="post">
-      <!-- <div id="rulle"> -->
       <div id="hej">
     <select id="gardin" name='animals'>
       <?php
@@ -127,8 +123,8 @@ if ($_FILES) {
               }
           }
           ?>
-         <!--  </div> -->
-      <input id="rullknapp" class="knapp" type="submit" value="Sök" name="sortByName">
+        
+      <input class="knapp" type="submit" value="Sök" name="sortByName">
 
     </select>
     </div>
