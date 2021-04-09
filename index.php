@@ -67,6 +67,7 @@ if(isset($_POST['insert']))
     }
 ?>
     </form>
+    
 
 </div>
 
