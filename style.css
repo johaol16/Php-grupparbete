@@ -110,7 +110,7 @@ label {
 h2 {
   text-align: left;
   padding-left: 30px;
-  padding-right: 30px;
+  padding-right: 15px;
 }
 
 img {
@@ -128,5 +128,4 @@ img {
 
 .felfil {
   padding-left: 30px;
-  text-align: center;
 }
