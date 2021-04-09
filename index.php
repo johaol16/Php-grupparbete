@@ -35,12 +35,12 @@ if(isset($_POST['insert']))
 
     $pdoExec = $pdoResult->execute(array(":id"=>$id,":name"=>$name,":category"=>$category,":birthday"=>$birthday,));
 
-    if($pdoExec)
+   /*  if($pdoExec)
     {
         echo 'Data inserted'; 
     } else {
         echo 'Data failed to insert';
-    }
+    } */
 }
 ?>
 
@@ -57,6 +57,15 @@ if(isset($_POST['insert']))
         <label>Födelsedatum</label>
         <input class="textfalt" type="text" name="birthday" required placeholder="Skriv ett Födelsedatum..">
         <input class="knapp" type="submit" name="insert" value="Lägg till">
+
+        <?php
+         if($pdoExec)
+    {
+        echo '<p style="color:green;" class="fail">Ett djur lades till</p>'; 
+    } else {
+        echo '<p style="color:red;" class="fail">Något gick fel</p>';
+    }
+?>
     </form>
 
 </div>
@@ -80,10 +89,10 @@ if ($_FILES) {
     $uploadPath = $uploadDir . basename($_FILES['fileToUpload']['name']);
 
     if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadPath)) {
-        echo "<p>Filen är uppladdad</p>";
+        echo '<p style="color:green;" class="felfil">Filen är uppladdad</p>';
         echo "<img src=".$uploadPath." height=200 width=300 />";
     } else {
-        echo "<p>Något gick fel</p>";
+        echo '<p style="color:red;" class="felfil"> Något gick fel</p>';
     }
 }
 

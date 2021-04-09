@@ -37,15 +37,16 @@ form {
 }
 
 #rullgardin {
-  padding: 30px 110px 30px 110px;
+  padding: 30px 100px 30px 100px;
   margin: 50px;
   align-self: center;
   display: flex;
   flex-direction: column;
-  background-color: rgb(233, 233, 233);
+  /* background-color: rgb(233, 233, 233); */
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(219, 218, 218, 0.2),
     0 6px 20px 0 rgba(219, 218, 218, 0.2);
+  border: solid rgb(8, 8, 107) 4px;
 }
 
 #filuppladdning {
@@ -59,7 +60,7 @@ form {
 }
 
 #gardin {
-  width: 150px;
+  width: 250px;
   height: 30px;
   padding-left: 7px;
   position: relative;
@@ -117,6 +118,14 @@ img {
   padding-left: 30px;
 }
 
-p {
+/* p {
+  padding-left: 30px;
+} */
+
+.fail {
+  padding-top: 20px;
+}
+
+.felfil {
   padding-left: 30px;
 }
