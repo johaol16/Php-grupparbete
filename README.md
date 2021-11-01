@@ -2,7 +2,8 @@
 
 **Mål:** 
 * Att skapa en dynamisk webblösning.
-**Syfte**
+
+**Syfte:**
 * PHP används oftast i kombination med databaser av SQL-typ, och den här uppgiften går ut på att skapa kod som hämtar data dynamiskt utifrån användarens önskemål.
 
 ## Instruktioner
